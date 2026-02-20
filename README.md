@@ -166,13 +166,11 @@ curve = NaturalGasForwardCurve("data/NAT_GAS.csv")
 print(curve.get_price("2025-01-15"))
 ```
 
-### Trend-Adjusted Model (Optional Enhancement)
+### Core Class Interface
 
 ```python
-from nat_gas_curve import NaturalGasForwardCurve
-
-curve = NaturalGasForwardCurve("data/NAT_GAS.csv", apply_trend=True)
-print(curve.get_price("2025-01-15"))
+curve = NaturalGasForwardCurve("data/NAT_GAS.csv", apply_trend=False)
+price = curve.get_price("2025-01-15")
 ```
 
 Supported date range:
