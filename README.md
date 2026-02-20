@@ -26,8 +26,11 @@ which returns an estimated forward price for any supported calendar date. The de
 
 ## Business Context
 
-[Section 2]
+Natural gas markets exhibit strong seasonal dynamics driven primarily by demand fluctuations and storage cycles. Winter months typically experience elevated demand due to heating needs, while summer months see comparatively lower consumption levels. As a result, forward prices often reflect predictable seasonal patterns, with higher winter delivery prices relative to summer delivery months.
 
+Commodity storage contracts derive value from these temporal price differentials. Market participants may purchase natural gas during lower-demand periods, store the physical commodity, and subsequently sell it during higher-demand months to capture seasonal spreads. The profitability of such strategies depends on the expected price difference between injection and withdrawal dates, net of storage and operational costs.
+
+Because storage decisions are not restricted to month-end dates, pricing utilities must estimate forward prices at arbitrary calendar points. The available dataset provides discrete monthly snapshots of end-of-month delivery prices, which are insufficient for granular injection and withdrawal modeling. A continuous forward pricing representation is therefore required to support storage valuation, spread analysis, and scenario assessment.
 ---
 
 ## Data Overview
