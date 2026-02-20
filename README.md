@@ -55,8 +55,49 @@ Given the limited sample size and monthly frequency, the dataset is well-suited 
 
 ## Methodology
 
-[Section 4]
+## Methodology
 
+The objective is to construct a continuous forward price curve from discrete monthly observations and extend it by one calendar year in a manner consistent with observed market structure.
+
+The methodology is intentionally deterministic and economically grounded, prioritizing transparency and robustness over unnecessary statistical complexity.
+
+### 1. In-Sample Interpolation
+
+The available dataset provides only end-of-month forward prices. However, storage contract valuation requires price estimates at arbitrary calendar dates. To construct a continuous pricing function within the observed range, linear interpolation is applied between adjacent monthly observations.
+
+Linear interpolation is selected for the following reasons:
+
+- Forward prices typically evolve smoothly in the absence of new market information.
+- The dataset exhibits gradual month-to-month transitions without extreme discontinuities.
+- The sample size (48 observations) does not justify high-order curve fitting or spline-based overfitting.
+- The resulting curve remains transparent and easily interpretable for trading and risk discussions.
+
+This approach produces a continuous time representation while preserving the observed structural dynamics of the market.
+
+### 2. One-Year Extrapolation
+
+The forward curve is extended by one calendar year beyond the final observed data point. The extrapolation methodology assumes persistence of the most recent 12-month seasonal structure.
+
+Specifically, the final observed year's monthly price pattern is shifted forward by one calendar year. This approach reflects:
+
+- Stable seasonal demand patterns driven by heating cycles and storage behavior.
+- Absence of structural regime shifts within the observed sample.
+- The need for conservative extension without imposing aggressive trend projections.
+
+No explicit stochastic modeling, volatility forecasting, or macroeconomic trend extrapolation is introduced at this stage. The goal is to provide a stable and defensible forward pricing surface suitable for storage spread analysis rather than long-horizon speculative forecasting.
+
+### 3. Modeling Philosophy
+
+The design intentionally avoids machine learning frameworks, high-degree polynomial fitting, or autoregressive time-series models. Given the dataset size and business objective, such approaches would introduce unnecessary complexity and potential overfitting risk.
+
+The resulting framework provides:
+
+- Continuous time granularity
+- Seasonal structure preservation
+- Deterministic and interpretable behavior
+- Controlled extrapolation horizon (one year)
+
+This foundation supports subsequent storage contract valuation and spread analysis in a disciplined and economically consistent manner.
 ---
 
 ## Assumptions & Limitations
