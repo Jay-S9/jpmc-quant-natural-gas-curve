@@ -156,4 +156,27 @@ price = curve.get_price("2025-01-15")
 
 ## Example Usage
 
-[Section 7]
+### Baseline Model (Seasonal Repetition Only)
+
+```python
+from nat_gas_curve import NaturalGasForwardCurve
+
+curve = NaturalGasForwardCurve("data/NAT_GAS.csv")
+print(curve.get_price("2025-01-15"))
+```
+
+### Trend-Adjusted Model (Optional Enhancement)
+
+```python
+from nat_gas_curve import NaturalGasForwardCurve
+
+curve = NaturalGasForwardCurve("data/NAT_GAS.csv", apply_trend=True)
+print(curve.get_price("2025-01-15"))
+```
+
+Supported date range:
+
+- Minimum: 31 October 2020  
+- Maximum: 30 September 2025  
+
+Requests outside this range will raise explicit errors.
