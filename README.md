@@ -180,3 +180,9 @@ Supported date range:
 - Maximum: 30 September 2025  
 
 Requests outside this range will raise explicit errors.
+
+### Forward Curve Visualization
+
+The figure below illustrates the constructed forward curve with seasonal extension and optional trend adjustment:
+
+![Natural Gas Forward Curve](visuals/forward_curve.png)
