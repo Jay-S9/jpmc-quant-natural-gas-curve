@@ -35,8 +35,22 @@ Because storage decisions are not restricted to month-end dates, pricing utiliti
 
 ## Data Overview
 
-[Section 3]
+## Data Overview
 
+The dataset consists of monthly end-of-month natural gas forward prices spanning from 31 October 2020 to 30 September 2024. Each observation represents the market price of natural gas delivered at the end of the corresponding calendar month.
+
+Key characteristics of the dataset:
+
+- **Frequency:** Monthly (end-of-month observations)
+- **Time Horizon:** Approximately four years (48 data points)
+- **Delivery Convention:** Prices correspond to forward delivery at month-end
+- **Granularity Limitation:** Only discrete monthly snapshots are available
+
+Visual inspection of the time series confirms a clear and recurring seasonal structure. Winter delivery months (typically November through February) consistently exhibit higher prices relative to late spring and early summer months. This pattern aligns with increased heating demand and established storage withdrawal cycles.
+
+In addition to seasonality, the data shows a gradual upward shift in overall price levels across the sample period, with successive winter peaks trending modestly higher from 2021 through 2024. However, no abrupt structural breaks or extreme volatility regimes are observed within the dataset.
+
+Given the limited sample size and monthly frequency, the dataset is well-suited for deterministic curve construction and seasonal modeling. It is not sufficiently large or granular to justify high-complexity stochastic or machine learning frameworks at this stage.
 ---
 
 ## Methodology
