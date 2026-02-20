@@ -1,5 +1,6 @@
 # JPMorgan Chase Quantitative Research Simulation
 ## Natural Gas Forward Curve Construction
+A deterministic forward curve construction framework designed to support natural gas storage contract valuation and seasonal spread analysis.
 
 ---
 
