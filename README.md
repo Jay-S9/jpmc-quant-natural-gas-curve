@@ -35,8 +35,6 @@ Because storage decisions are not restricted to month-end dates, pricing utiliti
 
 ## Data Overview
 
-## Data Overview
-
 The dataset consists of monthly end-of-month natural gas forward prices spanning from 31 October 2020 to 30 September 2024. Each observation represents the market price of natural gas delivered at the end of the corresponding calendar month.
 
 Key characteristics of the dataset:
@@ -52,8 +50,6 @@ In addition to seasonality, the data shows a gradual upward shift in overall pri
 
 Given the limited sample size and monthly frequency, the dataset is well-suited for deterministic curve construction and seasonal modeling. It is not sufficiently large or granular to justify high-complexity stochastic or machine learning frameworks at this stage.
 ---
-
-## Methodology
 
 ## Methodology
 
@@ -102,8 +98,33 @@ This foundation supports subsequent storage contract valuation and spread analys
 
 ## Assumptions & Limitations
 
-[Section 5]
+### Core Assumptions
 
+1. **Smooth Forward Price Evolution**  
+   Forward prices are assumed to evolve smoothly between observed monthly delivery points in the absence of new market information. Linear interpolation therefore provides a reasonable approximation within the observed range.
+
+2. **Seasonal Persistence**  
+   Seasonal demand patterns for natural gas, particularly winter heating demand and summer storage behavior, are assumed to persist over the one-year extrapolation horizon.
+
+3. **No Structural Regime Shift**  
+   The extrapolation assumes no abrupt macroeconomic shocks, geopolitical disruptions, supply shocks, or structural market changes within the extension period.
+
+4. **Deterministic Framework**  
+   The constructed curve represents expected price levels rather than probabilistic forecasts. Volatility dynamics and uncertainty bands are not modeled at this stage.
+
+---
+
+### Limitations
+
+- The model does not incorporate macroeconomic drivers such as weather variability, geopolitical risk, production constraints, or policy changes.
+- The extrapolation horizon is limited to one year; longer-term projections would require structural modeling.
+- Monthly granularity restricts the ability to capture short-term volatility or intra-month price dynamics.
+- No stochastic process (e.g., mean-reversion or jump dynamics) is explicitly modeled.
+- The framework should be viewed as a pricing utility rather than a predictive trading model.
+
+---
+
+This forward curve construction is intended as a foundational tool for storage spread evaluation. More advanced modeling (e.g., stochastic simulation, regime detection, volatility modeling) could be layered onto this framework in subsequent development phases.
 ---
 
 ## Implementation
