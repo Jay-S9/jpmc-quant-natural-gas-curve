@@ -129,7 +129,28 @@ This forward curve construction is intended as a foundational tool for storage s
 
 ## Implementation
 
-[Section 6]
+The forward curve is implemented as a reusable Python class:
+
+`NaturalGasForwardCurve`
+
+Key features:
+
+- Loads and cleans monthly forward data
+- Constructs continuous pricing curve via linear interpolation
+- Extends curve by one year using seasonal repetition
+- Optional mild linear trend adjustment
+- Input validation with explicit supported date range
+- Built-in visualization utility
+
+The model is designed to be deterministic, interpretable, and modular, making it suitable as a foundational pricing utility for storage spread analysis.
+
+---
+
+### Core Class Interface
+
+```python
+curve = NaturalGasForwardCurve("data/NAT_GAS.csv", apply_trend=False)
+price = curve.get_price("2025-01-15")
 
 ---
 
