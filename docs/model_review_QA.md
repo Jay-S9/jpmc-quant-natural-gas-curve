@@ -201,3 +201,11 @@ It:
 - Shows intellectual restraint
 
 ---
+
+## 12. Why not use sinusoidal regression like the example solution?
+
+While sinusoidal regression provides a smooth parametric representation of annual periodicity, it imposes a strong assumption that seasonal behavior follows a stable sinusoidal form with constant amplitude and frequency.
+
+The implemented approach instead preserves empirically observed seasonal structure directly from the most recent 12-month cycle. This avoids imposing a specific functional shape on seasonality and reduces structural model risk.
+
+Given the limited dataset (48 observations) and the deterministic pricing objective, empirical seasonal repetition provides a more conservative and interpretable solution.
